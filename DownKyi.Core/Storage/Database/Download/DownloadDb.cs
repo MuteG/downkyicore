@@ -1,5 +1,5 @@
-﻿using System.Runtime.Serialization.Formatters.Binary;
-using DownKyi.Core.Logging;
+﻿using DownKyi.Core.Logging;
+using MessagePack;
 using Microsoft.Data.Sqlite;
 using Console = DownKyi.Core.Utils.Debugging.Console;
 
@@ -7,7 +7,7 @@ namespace DownKyi.Core.Storage.Database.Download;
 
 public class DownloadDb
 {
-    private const string key = "bdb8eb69-3698-4af9-b722-9312d0fba623";
+    private const string KEY = "bdb8eb69-3698-4af9-b722-9312d0fba623";
     protected string tableName = "download";
 
 #if DEBUG
@@ -34,10 +34,8 @@ public class DownloadDb
         {
             // 定义一个流
             Stream stream = new MemoryStream();
-            // 定义一个格式化器
-            BinaryFormatter formatter = new BinaryFormatter();
             // 序列化
-            formatter.Serialize(stream, obj);
+            MessagePackSerializer.Serialize(stream, obj);
 
             byte[] array = null;
             array = new byte[stream.Length];
@@ -87,10 +85,8 @@ public class DownloadDb
         {
             // 定义一个流
             Stream stream = new MemoryStream();
-            // 定义一个格式化器
-            BinaryFormatter formatter = new BinaryFormatter();
             // 序列化
-            formatter.Serialize(stream, obj);
+            MessagePackSerializer.Serialize(stream, obj);
 
             byte[] array = null;
             array = new byte[stream.Length];
@@ -167,10 +163,8 @@ public class DownloadDb
                     byte[] array = (byte[])reader["data"];
                     // 定义一个流
                     MemoryStream stream = new MemoryStream(array);
-                    //定义一个格式化器
-                    BinaryFormatter formatter = new BinaryFormatter();
                     // 反序列化
-                    object obj = formatter.Deserialize(stream);
+                    object obj = MessagePackSerializer.Deserialize<object>(stream);
 
                     objects.Add((string)reader["id"], obj);
                 }

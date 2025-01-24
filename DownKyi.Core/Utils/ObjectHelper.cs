@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Net;
-using System.Reflection;
-using System.Runtime.Serialization.Formatters.Binary;
+﻿using System.Net;
 using DownKyi.Core.Logging;
+using MessagePack;
 using Console = DownKyi.Core.Utils.Debugging.Console;
 
 namespace DownKyi.Core.Utils;
@@ -36,9 +34,8 @@ public static class ObjectHelper
         }
 
         // 获取expires
-        var expires = strList2.FirstOrDefault(it => it.Contains("Expires")).Split('=')[1];
-        var dateTime = DateTime.Now;
-        dateTime = dateTime.AddSeconds(int.Parse(expires));
+        var expires = strList2.FirstOrDefault(it => it.Contains("Expires"))?.Split('=')[1] ?? string.Empty;
+        var dateTime = DateTime.Now.AddSeconds(int.Parse(expires));
 
         foreach (var item in strList2)
         {
@@ -73,28 +70,7 @@ public static class ObjectHelper
     /// <returns></returns>
     public static List<Cookie> GetAllCookies(CookieContainer cc)
     {
-        var lstCookies = new List<Cookie>();
-
-        var table = (Hashtable)cc.GetType().InvokeMember("m_domainTable",
-            BindingFlags.NonPublic | BindingFlags.GetField |
-            BindingFlags.Instance, null, cc, new object[] { });
-
-        foreach (var pathList in table.Values)
-        {
-            var lstCookieCol = (SortedList)pathList.GetType().InvokeMember("m_list",
-                BindingFlags.NonPublic | BindingFlags.GetField
-                                       | BindingFlags.Instance, null, pathList,
-                new object[] { });
-            foreach (CookieCollection colCookies in lstCookieCol.Values)
-            {
-                foreach (Cookie c in colCookies)
-                {
-                    lstCookies.Add(c);
-                }
-            }
-        }
-
-        return lstCookies;
+        return cc.GetAllCookies().ToList();
     }
 
     /// <summary>
@@ -115,7 +91,7 @@ public static class ObjectHelper
     /// <returns></returns>
     public static CookieContainer ReadCookiesFromDisk(string file)
     {
-        return (CookieContainer)ReadObjectFromDisk(file);
+        return ReadObjectFromDisk<CookieContainer>(file);
     }
 
     /// <summary>
@@ -124,15 +100,14 @@ public static class ObjectHelper
     /// <param name="file"></param>
     /// <param name="obj"></param>
     /// <returns></returns>
-    public static bool WriteObjectToDisk(string file, object obj)
+    public static bool WriteObjectToDisk<T>(string file, T obj)
     {
         try
         {
             using Stream stream = File.Create(file);
             Console.PrintLine("Writing object to disk... ");
 
-            var formatter = new BinaryFormatter();
-            formatter.Serialize(stream, obj);
+            MessagePackSerializer.Serialize(stream, obj, MessagePack.Resolvers.ContractlessStandardResolver.Options);
 
             Console.PrintLine("Done.");
             return true;
@@ -156,15 +131,13 @@ public static class ObjectHelper
     /// </summary>
     /// <param name="file"></param>
     /// <returns></returns>
-    public static object ReadObjectFromDisk(string file)
+    public static T ReadObjectFromDisk<T>(string file) where T : class
     {
         try
         {
             using Stream stream = File.Open(file, FileMode.Open);
             Console.PrintLine("Reading object from disk... ");
-            var formatter = new BinaryFormatter();
-            Console.PrintLine("Done.");
-            return formatter.Deserialize(stream);
+            return MessagePackSerializer.Deserialize<T>(stream, MessagePack.Resolvers.ContractlessStandardResolver.Options);
         }
         catch (IOException e)
         {
