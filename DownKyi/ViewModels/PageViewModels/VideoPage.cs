@@ -120,7 +120,7 @@ public class VideoPage : BindableBase
         // }
         // catch (Exception e)
         // {
-        //     Console.PrintLine("ExecuteVideoQualitySelectedCommand()发生异常: {0}", e);
+        //     Debug.WriteLine("ExecuteVideoQualitySelectedCommand()发生异常: {0}", e);
         //     LogManager.Error("ExecuteVideoQualitySelectedCommand", e);
         // }
         //

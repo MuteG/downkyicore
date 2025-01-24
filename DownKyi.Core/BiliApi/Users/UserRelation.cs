@@ -1,4 +1,5 @@
-﻿using DownKyi.Core.BiliApi.Users.Models;
+﻿using System.Diagnostics;
+using DownKyi.Core.BiliApi.Users.Models;
 using DownKyi.Core.Logging;
 using Newtonsoft.Json;
 using Console = DownKyi.Core.Utils.Debugging.Console;
@@ -35,7 +36,7 @@ public static class UserRelation
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetFollowers()发生异常: {0}", e);
+            Debug.WriteLine("GetFollowers()发生异常: {0}", e);
             LogManager.Error("UserRelation", e);
             return null;
         }
@@ -102,7 +103,7 @@ public static class UserRelation
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetFollowings()发生异常: {0}", e);
+            Debug.WriteLine("GetFollowings()发生异常: {0}", e);
             LogManager.Error("UserRelation", e);
             return null;
         }
@@ -160,7 +161,7 @@ public static class UserRelation
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetWhispers()发生异常: {0}", e);
+            Debug.WriteLine("GetWhispers()发生异常: {0}", e);
             LogManager.Error("UserRelation", e);
             return null;
         }
@@ -190,7 +191,7 @@ public static class UserRelation
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetBlacks()发生异常: {0}", e);
+            Debug.WriteLine("GetBlacks()发生异常: {0}", e);
             LogManager.Error("UserRelation", e);
             return null;
         }
@@ -220,7 +221,7 @@ public static class UserRelation
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetFollowingGroup()发生异常: {0}", e);
+            Debug.WriteLine("GetFollowingGroup()发生异常: {0}", e);
             LogManager.Error("UserRelation", e);
             return null;
         }
@@ -260,7 +261,7 @@ public static class UserRelation
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetFollowingGroupContent()发生异常: {0}", e);
+            Debug.WriteLine("GetFollowingGroupContent()发生异常: {0}", e);
             LogManager.Error("UserRelation", e);
             return null;
         }

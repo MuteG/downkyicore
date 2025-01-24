@@ -1,10 +1,10 @@
-﻿using System.Net;
+﻿using System.Diagnostics;
+using System.Net;
 using DownKyi.Core.Logging;
 using DownKyi.Core.Settings;
 using DownKyi.Core.Settings.Models;
 using DownKyi.Core.Storage;
 using DownKyi.Core.Utils;
-using DownKyi.Core.Utils.Encryptor;
 using Console = DownKyi.Core.Utils.Debugging.Console;
 
 namespace DownKyi.Core.BiliApi.Login
@@ -12,10 +12,10 @@ namespace DownKyi.Core.BiliApi.Login
     public static class LoginHelper
     {
         // 本地位置
-        private static readonly string LOCAL_LOGIN_INFO = StorageManager.GetLogin();
+        private static readonly string _localLoginInfo = StorageManager.GetLogin();
 
         // 16位密码，ps:密码位数没有限制，可任意设置
-        private static readonly string SecretKey = "EsOat*^y1QR!&0J6";
+        // private const string SECRET_KEY = "EsOat*^y1QR!&0J6";
 
         /// <summary>
         /// 保存登录的cookies到文件
@@ -24,23 +24,23 @@ namespace DownKyi.Core.BiliApi.Login
         /// <returns></returns>
         public static bool SaveLoginInfoCookies(string url)
         {
-            string tempFile = LOCAL_LOGIN_INFO + "-" + Guid.NewGuid().ToString("N");
+            string tempFile = _localLoginInfo + "-" + Guid.NewGuid().ToString("N");
             CookieContainer cookieContainer = ObjectHelper.ParseCookie(url);
 
             bool isSucceed = ObjectHelper.WriteCookiesToDisk(tempFile, cookieContainer);
             if (isSucceed)
             {
                 // 加密密钥，增加机器码
-                var password = SecretKey;
+                // var password = SECRET_KEY;
 
                 try
                 {
-                    File.Copy(tempFile, LOCAL_LOGIN_INFO, true);
+                    File.Copy(tempFile, _localLoginInfo, true);
                     // Encryptor.EncryptFile(tempFile, LOCAL_LOGIN_INFO, password);
                 }
                 catch (Exception e)
                 {
-                    Console.PrintLine("SaveLoginInfoCookies()发生异常: {0}", e);
+                    Debug.WriteLine("SaveLoginInfoCookies()发生异常: {0}", e);
                     LogManager.Error(e);
                     return false;
                 }
@@ -61,20 +61,20 @@ namespace DownKyi.Core.BiliApi.Login
         /// <returns></returns>
         public static CookieContainer? GetLoginInfoCookies()
         {
-            var tempFile = LOCAL_LOGIN_INFO + "-" + Guid.NewGuid().ToString("N");
+            var tempFile = _localLoginInfo + "-" + Guid.NewGuid().ToString("N");
 
-            if (File.Exists(LOCAL_LOGIN_INFO))
+            if (File.Exists(_localLoginInfo))
             {
                 try
                 {
-                    File.Copy(LOCAL_LOGIN_INFO, tempFile, true);
+                    File.Copy(_localLoginInfo, tempFile, true);
                     // 加密密钥，增加机器码
-                    var password = SecretKey;
+                    // var password = SECRET_KEY;
                     // Encryptor.DecryptFile(LOCAL_LOGIN_INFO, tempFile, password);
                 }
                 catch (Exception e)
                 {
-                    Console.PrintLine("GetLoginInfoCookies()发生异常: {0}", e);
+                    Debug.WriteLine("GetLoginInfoCookies()发生异常: {0}", e);
                     LogManager.Error(e);
                     if (File.Exists(tempFile))
                     {
@@ -111,12 +111,12 @@ namespace DownKyi.Core.BiliApi.Login
                 return "";
             }
 
-            var cookies = ObjectHelper.GetAllCookies(cookieContainer);
+            var cookies = cookieContainer.GetAllCookies();
 
             string cookie = string.Empty;
             foreach (var item in cookies)
             {
-                cookie += item.ToString() + ";";
+                cookie += item + ";";
             }
 
             return cookie.TrimEnd(';');
@@ -128,11 +128,11 @@ namespace DownKyi.Core.BiliApi.Login
         /// <returns></returns>
         public static bool Logout()
         {
-            if (File.Exists(LOCAL_LOGIN_INFO))
+            if (File.Exists(_localLoginInfo))
             {
                 try
                 {
-                    File.Delete(LOCAL_LOGIN_INFO);
+                    File.Delete(_localLoginInfo);
 
                     SettingsManager.GetInstance().SetUserInfo(new UserInfoSettings
                     {
@@ -145,7 +145,7 @@ namespace DownKyi.Core.BiliApi.Login
                 }
                 catch (IOException e)
                 {
-                    Console.PrintLine("Logout()发生异常: {0}", e);
+                    Debug.WriteLine("Logout()发生异常: {0}", e);
                     LogManager.Error(e);
                     return false;
                 }

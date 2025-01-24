@@ -1,4 +1,5 @@
-﻿using DownKyi.Core.BiliApi.Cheese.Models;
+﻿using System.Diagnostics;
+using DownKyi.Core.BiliApi.Cheese.Models;
 using DownKyi.Core.Logging;
 using Newtonsoft.Json;
 using Console = DownKyi.Core.Utils.Debugging.Console;
@@ -47,7 +48,7 @@ public static class CheeseInfo
         }
         catch (Exception e)
         {
-            Console.PrintLine("CheeseViewInfo()发生异常: {0}", e);
+            Debug.WriteLine("CheeseViewInfo()发生异常: {0}", e);
             LogManager.Error("CheeseInfo", e);
             return null;
         }
@@ -80,7 +81,7 @@ public static class CheeseInfo
         }
         catch (Exception e)
         {
-            Console.PrintLine("CheeseEpisodeList()发生异常: {0}", e);
+            Debug.WriteLine("CheeseEpisodeList()发生异常: {0}", e);
             LogManager.Error("CheeseInfo", e);
             return null;
         }

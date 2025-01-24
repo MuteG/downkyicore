@@ -1,4 +1,5 @@
-﻿using Avalonia;
+﻿using System.Diagnostics;
+using Avalonia;
 using Avalonia.Media.Imaging;
 using DownKyi.Core.Logging;
 using DownKyi.Core.Storage.Database;
@@ -69,7 +70,7 @@ public class StorageHeader
             }
             catch (Exception ex)
             {
-                Console.PrintLine("GetHeaderThumbnail()发生异常: {0}", ex);
+                Debug.WriteLine("GetHeaderThumbnail()发生异常: {0}", ex);
                 LogManager.Error("StorageHeader.GetHeaderThumbnail()", ex);
 
                 return null;
@@ -77,7 +78,7 @@ public class StorageHeader
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetHeaderThumbnail()发生异常: {0}", e);
+            Debug.WriteLine("GetHeaderThumbnail()发生异常: {0}", e);
             LogManager.Error("StorageHeader.GetHeaderThumbnail()", e);
 
             return null;
@@ -199,7 +200,7 @@ public class StorageHeader
             }
             catch (Exception e)
             {
-                Console.PrintLine("DownloadImage()发生异常: {0}", e);
+                Debug.WriteLine("DownloadImage()发生异常: {0}", e);
                 LogManager.Error("StorageHeader", e);
                 return null;
             }

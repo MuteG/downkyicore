@@ -1,4 +1,5 @@
-﻿using DownKyi.Core.BiliApi.Sign;
+﻿using System.Diagnostics;
+using DownKyi.Core.BiliApi.Sign;
 using DownKyi.Core.BiliApi.Video.Models;
 using DownKyi.Core.Logging;
 using Newtonsoft.Json;
@@ -43,7 +44,7 @@ public static class VideoInfo
         }
         catch (Exception e)
         {
-            Console.PrintLine("VideoInfo()发生异常: {0}", e);
+            Debug.WriteLine("VideoInfo()发生异常: {0}", e);
             LogManager.Error("VideoInfo", e);
             return null;
         }
@@ -73,7 +74,7 @@ public static class VideoInfo
         }
         catch (Exception e)
         {
-            Console.PrintLine("VideoDescription()发生异常: {0}", e);
+            Debug.WriteLine("VideoDescription()发生异常: {0}", e);
             LogManager.Error("VideoInfo", e);
             return null;
         }
@@ -103,7 +104,7 @@ public static class VideoInfo
         }
         catch (Exception e)
         {
-            Console.PrintLine("VideoPagelist()发生异常: {0}", e);
+            Debug.WriteLine("VideoPagelist()发生异常: {0}", e);
             LogManager.Error("VideoInfo", e);
             return null;
         }

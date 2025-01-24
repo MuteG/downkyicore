@@ -1,4 +1,5 @@
-﻿using DownKyi.Core.Logging;
+﻿using System.Diagnostics;
+using DownKyi.Core.Logging;
 using Console = DownKyi.Core.Utils.Debugging.Console;
 
 namespace DownKyi.Core.Utils;
@@ -29,7 +30,7 @@ public static class HardDisk
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetHardDiskSpace()发生异常: {0}", e);
+            Debug.WriteLine("GetHardDiskSpace()发生异常: {0}", e);
             LogManager.Error("HardDisk", e);
         }
 
@@ -59,7 +60,7 @@ public static class HardDisk
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetHardDiskFreeSpace()发生异常: {0}", e);
+            Debug.WriteLine("GetHardDiskFreeSpace()发生异常: {0}", e);
             LogManager.Error("HardDisk", e);
         }
 
@@ -76,7 +77,7 @@ public static class HardDisk
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetHardDiskFreeSpace()发生异常: {0}", e);
+            Debug.WriteLine("GetHardDiskFreeSpace()发生异常: {0}", e);
             LogManager.Error("HardDisk", e);
         }
 

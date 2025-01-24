@@ -64,15 +64,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public int GetVideoCodecs()
     {
-        appSettings = GetSettings();
-        if (appSettings.Video.VideoCodecs == -1)
+        _appSettings = GetSettings();
+        if (_appSettings.Video.VideoCodecs == -1)
         {
             // 第一次获取，先设置默认值
             SetVideoCodecs(videoCodecs);
             return videoCodecs;
         }
 
-        return appSettings.Video.VideoCodecs;
+        return _appSettings.Video.VideoCodecs;
     }
 
     /// <summary>
@@ -82,7 +82,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetVideoCodecs(int videoCodecs)
     {
-        appSettings.Video.VideoCodecs = videoCodecs;
+        _appSettings.Video.VideoCodecs = videoCodecs;
         return SetSettings();
     }
 
@@ -92,15 +92,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public int GetQuality()
     {
-        appSettings = GetSettings();
-        if (appSettings.Video.Quality == -1)
+        _appSettings = GetSettings();
+        if (_appSettings.Video.Quality == -1)
         {
             // 第一次获取，先设置默认值
             SetQuality(quality);
             return quality;
         }
 
-        return appSettings.Video.Quality;
+        return _appSettings.Video.Quality;
     }
 
     /// <summary>
@@ -110,7 +110,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetQuality(int quality)
     {
-        appSettings.Video.Quality = quality;
+        _appSettings.Video.Quality = quality;
         return SetSettings();
     }
 
@@ -120,15 +120,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public int GetAudioQuality()
     {
-        appSettings = GetSettings();
-        if (appSettings.Video.AudioQuality == -1)
+        _appSettings = GetSettings();
+        if (_appSettings.Video.AudioQuality == -1)
         {
             // 第一次获取，先设置默认值
             SetAudioQuality(audioQuality);
             return audioQuality;
         }
 
-        return appSettings.Video.AudioQuality;
+        return _appSettings.Video.AudioQuality;
     }
 
     /// <summary>
@@ -138,7 +138,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetAudioQuality(int quality)
     {
-        appSettings.Video.AudioQuality = quality;
+        _appSettings.Video.AudioQuality = quality;
         return SetSettings();
     }
     
@@ -148,15 +148,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public int GetVideoParseType()
     {
-        appSettings = GetSettings();
-        if (appSettings.Video.VideoParseType == null)
+        _appSettings = GetSettings();
+        if (_appSettings.Video.VideoParseType == null)
         {
             // 第一次获取，先设置默认值
             SetVideoParseType(VideoParseType);
             return VideoParseType;
         }
 
-        return appSettings.Video.VideoParseType;
+        return _appSettings.Video.VideoParseType;
     }
     
     /// <summary>
@@ -166,7 +166,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetVideoParseType(int videoParseType)
     {
-        appSettings.Video.VideoParseType = videoParseType;
+        _appSettings.Video.VideoParseType = videoParseType;
         return SetSettings();
     }
 
@@ -176,15 +176,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public AllowStatus IsTranscodingFlvToMp4()
     {
-        appSettings = GetSettings();
-        if (appSettings.Video.IsTranscodingFlvToMp4 == AllowStatus.NONE)
+        _appSettings = GetSettings();
+        if (_appSettings.Video.IsTranscodingFlvToMp4 == AllowStatus.NONE)
         {
             // 第一次获取，先设置默认值
             IsTranscodingFlvToMp4(isTranscodingFlvToMp4);
             return isTranscodingFlvToMp4;
         }
 
-        return appSettings.Video.IsTranscodingFlvToMp4;
+        return _appSettings.Video.IsTranscodingFlvToMp4;
     }
 
     /// <summary>
@@ -194,7 +194,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool IsTranscodingFlvToMp4(AllowStatus isTranscodingFlvToMp4)
     {
-        appSettings.Video.IsTranscodingFlvToMp4 = isTranscodingFlvToMp4;
+        _appSettings.Video.IsTranscodingFlvToMp4 = isTranscodingFlvToMp4;
         return SetSettings();
     }
     
@@ -204,15 +204,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public AllowStatus IsTranscodingAacToMp3()
     {
-        appSettings = GetSettings();
-        if (appSettings.Video.IsTranscodingAacToMp3 == AllowStatus.NONE)
+        _appSettings = GetSettings();
+        if (_appSettings.Video.IsTranscodingAacToMp3 == AllowStatus.NONE)
         {
             // 第一次获取，先设置默认值
             IsTranscodingAacToMp3(isTranscodingAacToMp3);
             return isTranscodingAacToMp3;
         }
 
-        return appSettings.Video.IsTranscodingAacToMp3;
+        return _appSettings.Video.IsTranscodingAacToMp3;
     }
     
     /// <summary>
@@ -222,7 +222,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool IsTranscodingAacToMp3(AllowStatus isTranscodingAacToMp3)
     {
-        appSettings.Video.IsTranscodingAacToMp3 = isTranscodingAacToMp3;
+        _appSettings.Video.IsTranscodingAacToMp3 = isTranscodingAacToMp3;
         return SetSettings();
     }
 
@@ -232,15 +232,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public string GetSaveVideoRootPath()
     {
-        appSettings = GetSettings();
-        if (appSettings.Video.SaveVideoRootPath == null)
+        _appSettings = GetSettings();
+        if (_appSettings.Video.SaveVideoRootPath == null)
         {
             // 第一次获取，先设置默认值
             SetSaveVideoRootPath(saveVideoRootPath);
             return saveVideoRootPath;
         }
 
-        return appSettings.Video.SaveVideoRootPath;
+        return _appSettings.Video.SaveVideoRootPath;
     }
 
     /// <summary>
@@ -250,7 +250,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetSaveVideoRootPath(string path)
     {
-        appSettings.Video.SaveVideoRootPath = path;
+        _appSettings.Video.SaveVideoRootPath = path;
         return SetSettings();
     }
 
@@ -260,15 +260,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public List<string> GetHistoryVideoRootPaths()
     {
-        appSettings = GetSettings();
-        if (appSettings.Video.HistoryVideoRootPaths == null)
+        _appSettings = GetSettings();
+        if (_appSettings.Video.HistoryVideoRootPaths == null)
         {
             // 第一次获取，先设置默认值
             SetHistoryVideoRootPaths(historyVideoRootPaths);
             return historyVideoRootPaths;
         }
 
-        return appSettings.Video.HistoryVideoRootPaths;
+        return _appSettings.Video.HistoryVideoRootPaths;
     }
 
     /// <summary>
@@ -278,7 +278,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetHistoryVideoRootPaths(List<string> historyPaths)
     {
-        appSettings.Video.HistoryVideoRootPaths = historyPaths;
+        _appSettings.Video.HistoryVideoRootPaths = historyPaths;
         return SetSettings();
     }
 
@@ -288,15 +288,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public AllowStatus IsUseSaveVideoRootPath()
     {
-        appSettings = GetSettings();
-        if (appSettings.Video.IsUseSaveVideoRootPath == AllowStatus.NONE)
+        _appSettings = GetSettings();
+        if (_appSettings.Video.IsUseSaveVideoRootPath == AllowStatus.NONE)
         {
             // 第一次获取，先设置默认值
             IsUseSaveVideoRootPath(isUseSaveVideoRootPath);
             return isUseSaveVideoRootPath;
         }
 
-        return appSettings.Video.IsUseSaveVideoRootPath;
+        return _appSettings.Video.IsUseSaveVideoRootPath;
     }
 
     /// <summary>
@@ -306,7 +306,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool IsUseSaveVideoRootPath(AllowStatus isUseSaveVideoRootPath)
     {
-        appSettings.Video.IsUseSaveVideoRootPath = isUseSaveVideoRootPath;
+        _appSettings.Video.IsUseSaveVideoRootPath = isUseSaveVideoRootPath;
         return SetSettings();
     }
 
@@ -316,15 +316,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public VideoContentSettings GetVideoContent()
     {
-        appSettings = GetSettings();
-        if (appSettings.Video.VideoContent == null)
+        _appSettings = GetSettings();
+        if (_appSettings.Video.VideoContent == null)
         {
             // 第一次获取，先设置默认值
             SetVideoContent(videoContent);
             return videoContent;
         }
 
-        return appSettings.Video.VideoContent;
+        return _appSettings.Video.VideoContent;
     }
 
     /// <summary>
@@ -334,7 +334,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetVideoContent(VideoContentSettings videoContent)
     {
-        appSettings.Video.VideoContent = videoContent;
+        _appSettings.Video.VideoContent = videoContent;
         return SetSettings();
     }
 
@@ -344,15 +344,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public List<FileNamePart> GetFileNameParts()
     {
-        appSettings = GetSettings();
-        if (appSettings.Video.FileNameParts == null || appSettings.Video.FileNameParts.Count == 0)
+        _appSettings = GetSettings();
+        if (_appSettings.Video.FileNameParts == null || _appSettings.Video.FileNameParts.Count == 0)
         {
             // 第一次获取，先设置默认值
             SetFileNameParts(fileNameParts);
             return fileNameParts;
         }
 
-        return appSettings.Video.FileNameParts;
+        return _appSettings.Video.FileNameParts;
     }
 
     /// <summary>
@@ -362,7 +362,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetFileNameParts(List<FileNamePart> fileNameParts)
     {
-        appSettings.Video.FileNameParts = fileNameParts;
+        _appSettings.Video.FileNameParts = fileNameParts;
         return SetSettings();
     }
 
@@ -372,16 +372,16 @@ public partial class SettingsManager
     /// <returns></returns>
     public string GetFileNamePartTimeFormat()
     {
-        appSettings = GetSettings();
-        if (appSettings.Video.FileNamePartTimeFormat == null ||
-            appSettings.Video.FileNamePartTimeFormat == string.Empty)
+        _appSettings = GetSettings();
+        if (_appSettings.Video.FileNamePartTimeFormat == null ||
+            _appSettings.Video.FileNamePartTimeFormat == string.Empty)
         {
             // 第一次获取，先设置默认值
             SetFileNamePartTimeFormat(fileNamePartTimeFormat);
             return fileNamePartTimeFormat;
         }
 
-        return appSettings.Video.FileNamePartTimeFormat;
+        return _appSettings.Video.FileNamePartTimeFormat;
     }
 
     /// <summary>
@@ -391,7 +391,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetFileNamePartTimeFormat(string fileNamePartTimeFormat)
     {
-        appSettings.Video.FileNamePartTimeFormat = fileNamePartTimeFormat;
+        _appSettings.Video.FileNamePartTimeFormat = fileNamePartTimeFormat;
         return SetSettings();
     }
 
@@ -401,15 +401,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public OrderFormat GetOrderFormat()
     {
-        appSettings = GetSettings();
-        if (appSettings.Video.OrderFormat == OrderFormat.NOT_SET)
+        _appSettings = GetSettings();
+        if (_appSettings.Video.OrderFormat == OrderFormat.NOT_SET)
         {
             // 第一次获取，先设置默认值
             SetOrderFormat(orderFormat);
             return orderFormat;
         }
 
-        return appSettings.Video.OrderFormat;
+        return _appSettings.Video.OrderFormat;
     }
 
     /// <summary>
@@ -419,7 +419,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetOrderFormat(OrderFormat orderFormat)
     {
-        appSettings.Video.OrderFormat = orderFormat;
+        _appSettings.Video.OrderFormat = orderFormat;
         return SetSettings();
     }
 }

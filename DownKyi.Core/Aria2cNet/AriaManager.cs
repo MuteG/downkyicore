@@ -1,4 +1,5 @@
-﻿using DownKyi.Core.Aria2cNet.Client;
+﻿using System.Diagnostics;
+using DownKyi.Core.Aria2cNet.Client;
 using DownKyi.Core.Aria2cNet.Client.Entity;
 using DownKyi.Core.Logging;
 using Console = DownKyi.Core.Utils.Debugging.Console;
@@ -93,7 +94,7 @@ public class AriaManager
             {
                 if (status.Result != null)
                 {
-                    Console.PrintLine("ErrorMessage: " + status.Result.Result.ErrorMessage);
+                    Debug.WriteLine("ErrorMessage: " + status.Result.Result.ErrorMessage);
                     LogManager.Error("AriaManager", status.Result.Result.ErrorMessage);
                 }
 
@@ -106,7 +107,7 @@ public class AriaManager
 
                 // aira中删除记录
                 Task<AriaRemove> ariaRemove1 = AriaClient.RemoveDownloadResultAsync(gid);
-                Console.PrintLine(ariaRemove1);
+                Debug.WriteLine(ariaRemove1);
                 if (ariaRemove1.Result != null)
                 {
                     LogManager.Debug("AriaManager", ariaRemove1.Result.Result);

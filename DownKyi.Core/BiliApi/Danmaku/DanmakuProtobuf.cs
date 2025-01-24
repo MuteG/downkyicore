@@ -1,4 +1,5 @@
-﻿using Bilibili.Community.Service.Dm.V1;
+﻿using System.Diagnostics;
+using Bilibili.Community.Service.Dm.V1;
 using DownKyi.Core.BiliApi.Danmaku.Models;
 using DownKyi.Core.Storage;
 using Console = DownKyi.Core.Utils.Debugging.Console;
@@ -32,7 +33,7 @@ public static class DanmakuProtobuf
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetDanmakuProto()发生异常: {0}", e);
+            Debug.WriteLine("GetDanmakuProto()发生异常: {0}", e);
             //Logging.LogManager.Error(e);
         }
 
@@ -63,7 +64,7 @@ public static class DanmakuProtobuf
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetDanmakuProto()发生异常: {0}", e);
+            Debug.WriteLine("GetDanmakuProto()发生异常: {0}", e);
             //Logging.LogManager.Error(e);
             return null;
         }

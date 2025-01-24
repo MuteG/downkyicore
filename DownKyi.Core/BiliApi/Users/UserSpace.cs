@@ -1,4 +1,5 @@
-﻿using DownKyi.Core.BiliApi.Sign;
+﻿using System.Diagnostics;
+using DownKyi.Core.BiliApi.Sign;
 using DownKyi.Core.BiliApi.Users.Models;
 using DownKyi.Core.Logging;
 using Newtonsoft.Json;
@@ -30,7 +31,7 @@ public static class UserSpace
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetSpaceSettings()发生异常: {0}", e);
+            Debug.WriteLine("GetSpaceSettings()发生异常: {0}", e);
             LogManager.Error("UserSpace", e);
             return null;
         }
@@ -147,7 +148,7 @@ public static class UserSpace
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetPublication()发生异常: {0}", e);
+            Debug.WriteLine("GetPublication()发生异常: {0}", e);
             LogManager.Error("UserSpace", e);
             return null;
         }
@@ -175,7 +176,7 @@ public static class UserSpace
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetChannelList()发生异常: {0}", e);
+            Debug.WriteLine("GetChannelList()发生异常: {0}", e);
             LogManager.Error("UserSpace", e);
             return null;
         }
@@ -227,7 +228,7 @@ public static class UserSpace
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetChannelVideoList()发生异常: {0}", e);
+            Debug.WriteLine("GetChannelVideoList()发生异常: {0}", e);
             LogManager.Error("UserSpace", e);
             return null;
         }
@@ -258,7 +259,7 @@ public static class UserSpace
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetSeasonsSeries()发生异常: {0}", e);
+            Debug.WriteLine("GetSeasonsSeries()发生异常: {0}", e);
             LogManager.Error("UserSpace", e);
             return null;
         }
@@ -285,7 +286,7 @@ public static class UserSpace
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetSeasonsDetail()发生异常: {0}", e);
+            Debug.WriteLine("GetSeasonsDetail()发生异常: {0}", e);
             LogManager.Error("UserSpace", e);
             return null;
         }
@@ -310,7 +311,7 @@ public static class UserSpace
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetSeriesMeta()发生异常: {0}", e);
+            Debug.WriteLine("GetSeriesMeta()发生异常: {0}", e);
             LogManager.Error("UserSpace", e);
             return null;
         }
@@ -339,7 +340,7 @@ public static class UserSpace
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetSeriesDetail()发生异常: {0}", e);
+            Debug.WriteLine("GetSeriesDetail()发生异常: {0}", e);
             LogManager.Error("UserSpace", e);
             return null;
         }
@@ -368,7 +369,7 @@ public static class UserSpace
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetCheese()发生异常: {0}", e);
+            Debug.WriteLine("GetCheese()发生异常: {0}", e);
             LogManager.Error("UserSpace", e);
             return null;
         }
@@ -423,7 +424,7 @@ public static class UserSpace
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetBangumiFollow()发生异常: {0}", e);
+            Debug.WriteLine("GetBangumiFollow()发生异常: {0}", e);
             LogManager.Error("UserSpace", e);
             return null;
         }

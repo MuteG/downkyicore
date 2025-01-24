@@ -1,4 +1,5 @@
-﻿using DownKyi.Core.BiliApi.Users.Models;
+﻿using System.Diagnostics;
+using DownKyi.Core.BiliApi.Users.Models;
 using DownKyi.Core.Logging;
 using Newtonsoft.Json;
 using Console = DownKyi.Core.Utils.Debugging.Console;
@@ -28,7 +29,7 @@ public class Nickname
         }
         catch (Exception e)
         {
-            Console.PrintLine("CheckNickname()发生异常: {0}", e);
+            Debug.WriteLine("CheckNickname()发生异常: {0}", e);
             LogManager.Error("Nickname", e);
             return null;
         }

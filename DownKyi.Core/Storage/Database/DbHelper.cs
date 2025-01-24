@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Diagnostics;
 using DownKyi.Core.Logging;
 using Microsoft.Data.Sqlite;
 using Console = DownKyi.Core.Utils.Debugging.Console;
@@ -140,7 +141,7 @@ public class DbHelper
         }
         catch (SqliteException e)
         {
-            Console.PrintLine("DbHelper ExecuteNonQuery()发生异常: {0}", e);
+            Debug.WriteLine("DbHelper ExecuteNonQuery()发生异常: {0}", e);
             LogManager.Error("DbHelper ExecuteNonQuery()", e);
         }
     }
@@ -172,7 +173,7 @@ public class DbHelper
         }
         catch (SqliteException e)
         {
-            Console.PrintLine("DbHelper ExecuteQuery()发生异常: {0}", e);
+            Debug.WriteLine("DbHelper ExecuteQuery()发生异常: {0}", e);
             LogManager.Error("DbHelper ExecuteQuery()", e);
         }
     }

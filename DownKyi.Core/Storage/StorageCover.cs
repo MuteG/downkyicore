@@ -1,4 +1,5 @@
-﻿using Avalonia;
+﻿using System.Diagnostics;
+using Avalonia;
 using Avalonia.Media.Imaging;
 using DownKyi.Core.Logging;
 using DownKyi.Core.Storage.Database;
@@ -67,7 +68,7 @@ public class StorageCover
             }
             catch (Exception ex)
             {
-                Console.PrintLine("GetCoverThumbnail()发生异常: {0}", ex);
+                Debug.WriteLine("GetCoverThumbnail()发生异常: {0}", ex);
                 LogManager.Error("StorageCover.GetCoverThumbnail()", ex);
 
                 return null;
@@ -75,7 +76,7 @@ public class StorageCover
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetCoverThumbnail()发生异常: {0}", e);
+            Debug.WriteLine("GetCoverThumbnail()发生异常: {0}", e);
             LogManager.Error("StorageCover.GetCoverThumbnail()", e);
 
             return null;
@@ -248,7 +249,7 @@ public class StorageCover
             }
             catch (Exception e)
             {
-                Console.PrintLine("DownloadImage()发生异常: {0}", e);
+                Debug.WriteLine("DownloadImage()发生异常: {0}", e);
                 LogManager.Error("StorageCover", e);
                 return null;
             }

@@ -39,15 +39,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public AllowStatus GetDanmakuTopFilter()
     {
-        appSettings = GetSettings();
-        if (appSettings.Danmaku.DanmakuTopFilter == AllowStatus.NONE)
+        _appSettings = GetSettings();
+        if (_appSettings.Danmaku.DanmakuTopFilter == AllowStatus.NONE)
         {
             // 第一次获取，先设置默认值
             SetDanmakuTopFilter(danmakuTopFilter);
             return danmakuTopFilter;
         }
 
-        return appSettings.Danmaku.DanmakuTopFilter;
+        return _appSettings.Danmaku.DanmakuTopFilter;
     }
 
     /// <summary>
@@ -57,7 +57,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetDanmakuTopFilter(AllowStatus danmakuFilter)
     {
-        appSettings.Danmaku.DanmakuTopFilter = danmakuFilter;
+        _appSettings.Danmaku.DanmakuTopFilter = danmakuFilter;
         return SetSettings();
     }
 
@@ -67,15 +67,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public AllowStatus GetDanmakuBottomFilter()
     {
-        appSettings = GetSettings();
-        if (appSettings.Danmaku.DanmakuBottomFilter == AllowStatus.NONE)
+        _appSettings = GetSettings();
+        if (_appSettings.Danmaku.DanmakuBottomFilter == AllowStatus.NONE)
         {
             // 第一次获取，先设置默认值
             SetDanmakuBottomFilter(danmakuBottomFilter);
             return danmakuBottomFilter;
         }
 
-        return appSettings.Danmaku.DanmakuBottomFilter;
+        return _appSettings.Danmaku.DanmakuBottomFilter;
     }
 
     /// <summary>
@@ -85,7 +85,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetDanmakuBottomFilter(AllowStatus danmakuFilter)
     {
-        appSettings.Danmaku.DanmakuBottomFilter = danmakuFilter;
+        _appSettings.Danmaku.DanmakuBottomFilter = danmakuFilter;
         return SetSettings();
     }
 
@@ -95,15 +95,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public AllowStatus GetDanmakuScrollFilter()
     {
-        appSettings = GetSettings();
-        if (appSettings.Danmaku.DanmakuScrollFilter == AllowStatus.NONE)
+        _appSettings = GetSettings();
+        if (_appSettings.Danmaku.DanmakuScrollFilter == AllowStatus.NONE)
         {
             // 第一次获取，先设置默认值
             SetDanmakuScrollFilter(danmakuScrollFilter);
             return danmakuScrollFilter;
         }
 
-        return appSettings.Danmaku.DanmakuScrollFilter;
+        return _appSettings.Danmaku.DanmakuScrollFilter;
     }
 
     /// <summary>
@@ -113,7 +113,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetDanmakuScrollFilter(AllowStatus danmakuFilter)
     {
-        appSettings.Danmaku.DanmakuScrollFilter = danmakuFilter;
+        _appSettings.Danmaku.DanmakuScrollFilter = danmakuFilter;
         return SetSettings();
     }
 
@@ -123,15 +123,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public AllowStatus IsCustomDanmakuResolution()
     {
-        appSettings = GetSettings();
-        if (appSettings.Danmaku.IsCustomDanmakuResolution == AllowStatus.NONE)
+        _appSettings = GetSettings();
+        if (_appSettings.Danmaku.IsCustomDanmakuResolution == AllowStatus.NONE)
         {
             // 第一次获取，先设置默认值
             IsCustomDanmakuResolution(isCustomDanmakuResolution);
             return isCustomDanmakuResolution;
         }
 
-        return appSettings.Danmaku.IsCustomDanmakuResolution;
+        return _appSettings.Danmaku.IsCustomDanmakuResolution;
     }
 
     /// <summary>
@@ -141,7 +141,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool IsCustomDanmakuResolution(AllowStatus isCustomResolution)
     {
-        appSettings.Danmaku.IsCustomDanmakuResolution = isCustomResolution;
+        _appSettings.Danmaku.IsCustomDanmakuResolution = isCustomResolution;
         return SetSettings();
     }
 
@@ -151,15 +151,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public int GetDanmakuScreenWidth()
     {
-        appSettings = GetSettings();
-        if (appSettings.Danmaku.DanmakuScreenWidth == -1)
+        _appSettings = GetSettings();
+        if (_appSettings.Danmaku.DanmakuScreenWidth == -1)
         {
             // 第一次获取，先设置默认值
             SetDanmakuScreenWidth(danmakuScreenWidth);
             return danmakuScreenWidth;
         }
 
-        return appSettings.Danmaku.DanmakuScreenWidth;
+        return _appSettings.Danmaku.DanmakuScreenWidth;
     }
 
     /// <summary>
@@ -169,7 +169,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetDanmakuScreenWidth(int screenWidth)
     {
-        appSettings.Danmaku.DanmakuScreenWidth = screenWidth;
+        _appSettings.Danmaku.DanmakuScreenWidth = screenWidth;
         return SetSettings();
     }
 
@@ -179,15 +179,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public int GetDanmakuScreenHeight()
     {
-        appSettings = GetSettings();
-        if (appSettings.Danmaku.DanmakuScreenHeight == -1)
+        _appSettings = GetSettings();
+        if (_appSettings.Danmaku.DanmakuScreenHeight == -1)
         {
             // 第一次获取，先设置默认值
             SetDanmakuScreenHeight(danmakuScreenHeight);
             return danmakuScreenHeight;
         }
 
-        return appSettings.Danmaku.DanmakuScreenHeight;
+        return _appSettings.Danmaku.DanmakuScreenHeight;
     }
 
     /// <summary>
@@ -197,7 +197,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetDanmakuScreenHeight(int screenHeight)
     {
-        appSettings.Danmaku.DanmakuScreenHeight = screenHeight;
+        _appSettings.Danmaku.DanmakuScreenHeight = screenHeight;
         return SetSettings();
     }
 
@@ -207,15 +207,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public string GetDanmakuFontName()
     {
-        appSettings = GetSettings();
-        if (appSettings.Danmaku.DanmakuFontName == null)
+        _appSettings = GetSettings();
+        if (_appSettings.Danmaku.DanmakuFontName == null)
         {
             // 第一次获取，先设置默认值
             SetDanmakuFontName(danmakuFontName);
             return danmakuFontName;
         }
 
-        return appSettings.Danmaku.DanmakuFontName;
+        return _appSettings.Danmaku.DanmakuFontName;
     }
 
     /// <summary>
@@ -225,7 +225,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetDanmakuFontName(string danmakuFontName)
     {
-        appSettings.Danmaku.DanmakuFontName = danmakuFontName;
+        _appSettings.Danmaku.DanmakuFontName = danmakuFontName;
         return SetSettings();
     }
 
@@ -235,15 +235,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public int GetDanmakuFontSize()
     {
-        appSettings = GetSettings();
-        if (appSettings.Danmaku.DanmakuFontSize == -1)
+        _appSettings = GetSettings();
+        if (_appSettings.Danmaku.DanmakuFontSize == -1)
         {
             // 第一次获取，先设置默认值
             SetDanmakuFontSize(danmakuFontSize);
             return danmakuFontSize;
         }
 
-        return appSettings.Danmaku.DanmakuFontSize;
+        return _appSettings.Danmaku.DanmakuFontSize;
     }
 
     /// <summary>
@@ -253,7 +253,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetDanmakuFontSize(int danmakuFontSize)
     {
-        appSettings.Danmaku.DanmakuFontSize = danmakuFontSize;
+        _appSettings.Danmaku.DanmakuFontSize = danmakuFontSize;
         return SetSettings();
     }
 
@@ -263,15 +263,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public int GetDanmakuLineCount()
     {
-        appSettings = GetSettings();
-        if (appSettings.Danmaku.DanmakuLineCount == -1)
+        _appSettings = GetSettings();
+        if (_appSettings.Danmaku.DanmakuLineCount == -1)
         {
             // 第一次获取，先设置默认值
             SetDanmakuLineCount(danmakuLineCount);
             return danmakuLineCount;
         }
 
-        return appSettings.Danmaku.DanmakuLineCount;
+        return _appSettings.Danmaku.DanmakuLineCount;
     }
 
     /// <summary>
@@ -281,7 +281,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetDanmakuLineCount(int danmakuLineCount)
     {
-        appSettings.Danmaku.DanmakuLineCount = danmakuLineCount;
+        _appSettings.Danmaku.DanmakuLineCount = danmakuLineCount;
         return SetSettings();
     }
 
@@ -291,15 +291,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public DanmakuLayoutAlgorithm GetDanmakuLayoutAlgorithm()
     {
-        appSettings = GetSettings();
-        if (appSettings.Danmaku.DanmakuLayoutAlgorithm == DanmakuLayoutAlgorithm.NONE)
+        _appSettings = GetSettings();
+        if (_appSettings.Danmaku.DanmakuLayoutAlgorithm == DanmakuLayoutAlgorithm.NONE)
         {
             // 第一次获取，先设置默认值
             SetDanmakuLayoutAlgorithm(danmakuLayoutAlgorithm);
             return danmakuLayoutAlgorithm;
         }
 
-        return appSettings.Danmaku.DanmakuLayoutAlgorithm;
+        return _appSettings.Danmaku.DanmakuLayoutAlgorithm;
     }
 
     /// <summary>
@@ -309,7 +309,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetDanmakuLayoutAlgorithm(DanmakuLayoutAlgorithm danmakuLayoutAlgorithm)
     {
-        appSettings.Danmaku.DanmakuLayoutAlgorithm = danmakuLayoutAlgorithm;
+        _appSettings.Danmaku.DanmakuLayoutAlgorithm = danmakuLayoutAlgorithm;
         return SetSettings();
     }
 }

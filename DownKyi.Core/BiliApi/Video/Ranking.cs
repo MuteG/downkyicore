@@ -1,4 +1,5 @@
-﻿using DownKyi.Core.BiliApi.Video.Models;
+﻿using System.Diagnostics;
+using DownKyi.Core.BiliApi.Video.Models;
 using DownKyi.Core.Logging;
 using Newtonsoft.Json;
 using Console = DownKyi.Core.Utils.Debugging.Console;
@@ -34,7 +35,7 @@ public static class Ranking
         }
         catch (Exception e)
         {
-            Console.PrintLine("RegionRankingList()发生异常: {0}", e);
+            Debug.WriteLine("RegionRankingList()发生异常: {0}", e);
             LogManager.Error("Ranking", e);
             return null;
         }

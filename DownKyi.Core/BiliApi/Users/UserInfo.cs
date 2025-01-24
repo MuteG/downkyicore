@@ -1,4 +1,5 @@
-﻿using DownKyi.Core.BiliApi.Sign;
+﻿using System.Diagnostics;
+using DownKyi.Core.BiliApi.Sign;
 using DownKyi.Core.BiliApi.Users.Models;
 using DownKyi.Core.Logging;
 using Newtonsoft.Json;
@@ -29,7 +30,7 @@ public static class UserInfo
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetUserInfoForNavigation()发生异常: {0}", e);
+            Debug.WriteLine("GetUserInfoForNavigation()发生异常: {0}", e);
             LogManager.Error("UserInfo", e);
             return null;
         }
@@ -59,7 +60,7 @@ public static class UserInfo
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetInfoForSpace()发生异常: {0}", e);
+            Debug.WriteLine("GetInfoForSpace()发生异常: {0}", e);
             LogManager.Error("UserInfo", e);
             return null;
         }
@@ -83,7 +84,7 @@ public static class UserInfo
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetMyInfo()发生异常: {0}", e);
+            Debug.WriteLine("GetMyInfo()发生异常: {0}", e);
             LogManager.Error("UserInfo", e);
             return null;
         }

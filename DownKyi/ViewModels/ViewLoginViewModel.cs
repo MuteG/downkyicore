@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Media.Imaging;
@@ -98,14 +99,14 @@ public class ViewLoginViewModel : ViewModelBase
             }
 
             PropertyChangeAsync(() => { LoginQrCode = LoginQR.GetLoginQRCode(loginUrl.Data.Url); });
-            Console.PrintLine(loginUrl.Data.Url + "\n");
+            Debug.WriteLine(loginUrl.Data.Url + "\n");
             LogManager.Debug(Tag, loginUrl.Data.Url);
 
             GetLoginStatus(loginUrl.Data.QrcodeKey);
         }
         catch (Exception e)
         {
-            Console.PrintLine("Login()发生异常: {0}", e);
+            Debug.WriteLine("Login()发生异常: {0}", e);
             LogManager.Error(Tag, e);
         }
     }
@@ -126,7 +127,7 @@ public class ViewLoginViewModel : ViewModelBase
                 continue;
             }
 
-            Console.PrintLine(loginStatus.Data.Code + "\n" + loginStatus.Data.Message + "\n" +
+            Debug.WriteLine(loginStatus.Data.Code + "\n" + loginStatus.Data.Message + "\n" +
                               loginStatus.Data.Url + "\n");
 
             switch (loginStatus.Data.Code)
@@ -188,7 +189,7 @@ public class ViewLoginViewModel : ViewModelBase
                     }
                     catch (Exception e)
                     {
-                        Console.PrintLine("PageLogin 保存登录信息发生异常: {0}", e);
+                        Debug.WriteLine("PageLogin 保存登录信息发生异常: {0}", e);
                         LogManager.Error(e);
                         EventAggregator.GetEvent<MessageEvent>().Publish(DictionaryResource.GetString("LoginFailed"));
                     }
@@ -204,7 +205,7 @@ public class ViewLoginViewModel : ViewModelBase
 
             // 判断是否该结束线程，若为true，跳出while循环
             if (cancellationToken?.IsCancellationRequested != true) continue;
-            Console.PrintLine("停止Login线程，跳出while循环");
+            Debug.WriteLine("停止Login线程，跳出while循环");
             LogManager.Debug(Tag, "登录操作结束");
             break;
         }

@@ -72,7 +72,7 @@ namespace DownKyi.Core.Aria2cNet.Server
                     }
                     catch (Exception e)
                     {
-                        Console.PrintLine("StartServerAsync()发生其他异常: {0}", e);
+                        Debug.WriteLine("StartServerAsync()发生其他异常: {0}", e);
                         LogManager.Error("AriaServer", e);
                     }
                 }
@@ -120,7 +120,7 @@ namespace DownKyi.Core.Aria2cNet.Server
                             return;
                         }
 
-                        Console.PrintLine(e.Data);
+                        Debug.WriteLine(e.Data);
                         LogManager.Debug("AriaServer", e.Data);
 
                         action.Invoke(e.Data);
@@ -226,7 +226,7 @@ namespace DownKyi.Core.Aria2cNet.Server
                 }
                 catch (Exception e)
                 {
-                    Console.PrintLine("KillServer()发生异常: {0}", e);
+                    Debug.WriteLine("KillServer()发生异常: {0}", e);
                     LogManager.Error("AriaServer", e);
                 }
             }

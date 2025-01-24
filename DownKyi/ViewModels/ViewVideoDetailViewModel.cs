@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -253,7 +254,7 @@ public class ViewVideoDetailViewModel : ViewModelBase
         }
         catch (Exception e)
         {
-            Console.PrintLine("InputCommand()发生异常: {0}", e);
+            Debug.WriteLine("InputCommand()发生异常: {0}", e);
             LogManager.Error(Tag, e);
 
             LoadingVisibility = false;
@@ -418,7 +419,7 @@ public class ViewVideoDetailViewModel : ViewModelBase
         }
         catch (Exception e)
         {
-            Console.PrintLine("ParseCommand()发生异常: {0}", e);
+            Debug.WriteLine("ParseCommand()发生异常: {0}", e);
             LogManager.Error(Tag, e);
 
             LoadingVisibility = false;
@@ -537,7 +538,7 @@ public class ViewVideoDetailViewModel : ViewModelBase
         }
         catch (Exception e)
         {
-            Console.PrintLine("ParseCommand()发生异常: {0}", e);
+            Debug.WriteLine("ParseCommand()发生异常: {0}", e);
             LogManager.Error(Tag, e);
 
             LoadingVisibility = false;

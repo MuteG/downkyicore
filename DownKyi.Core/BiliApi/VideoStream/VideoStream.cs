@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Diagnostics;
+using System.Text.RegularExpressions;
 using DownKyi.Core.BiliApi.Models.Json;
 using DownKyi.Core.BiliApi.Sign;
 using DownKyi.Core.BiliApi.VideoStream.Models;
@@ -37,7 +38,7 @@ public static class VideoStream
         }
         catch (Exception e)
         {
-            Console.PrintLine("PlayerV2()发生异常: {0}", e);
+            Debug.WriteLine("PlayerV2()发生异常: {0}", e);
             LogManager.Error("PlayerV2()", e);
             return null;
         }
@@ -89,7 +90,7 @@ public static class VideoStream
             }
             catch (Exception e)
             {
-                Console.PrintLine("GetSubtitle()发生异常: {0}", e);
+                Debug.WriteLine("GetSubtitle()发生异常: {0}", e);
                 LogManager.Error("GetSubtitle()", e);
             }
         }
@@ -257,7 +258,7 @@ public static class VideoStream
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetPlayUrl()发生异常: {0}", e);
+            Debug.WriteLine("GetPlayUrl()发生异常: {0}", e);
             LogManager.Error("GetPlayUrl()", e);
             return null;
         }
@@ -302,7 +303,7 @@ public static class VideoStream
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetPlayUrlPc()发生异常: {0}", e);
+            Debug.WriteLine("GetPlayUrlPc()发生异常: {0}", e);
             LogManager.Error("GetPlayUrlPc()", e);
             return null;
         }

@@ -1,4 +1,5 @@
-﻿using Avalonia.Media.Imaging;
+﻿using System.Diagnostics;
+using Avalonia.Media.Imaging;
 using DownKyi.Core.BiliApi.Login.Models;
 using DownKyi.Core.Logging;
 using DownKyi.Core.Utils;
@@ -23,7 +24,7 @@ public static class LoginQR
         }
         catch (Exception e)
         {
-            Utils.Debugging.Console.PrintLine("GetLoginUrl()发生异常: {0}", e);
+            Debug.WriteLine("GetLoginUrl()发生异常: {0}", e);
             LogManager.Error("LoginQR", e);
             return null;
         }
@@ -47,7 +48,7 @@ public static class LoginQR
         }
         catch (Exception e)
         {
-            Utils.Debugging.Console.PrintLine("GetLoginInfo()发生异常: {0}", e);
+            Debug.WriteLine("GetLoginInfo()发生异常: {0}", e);
             LogManager.Error("LoginQR", e);
             return null;
         }
@@ -66,7 +67,7 @@ public static class LoginQR
         }
         catch (Exception e)
         {
-            Utils.Debugging.Console.PrintLine("GetLoginQRCode()发生异常: {0}", e);
+            Debug.WriteLine("GetLoginQRCode()发生异常: {0}", e);
             LogManager.Error("LoginQR", e);
             return null;
         }

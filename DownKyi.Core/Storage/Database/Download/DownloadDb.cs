@@ -1,4 +1,5 @@
-﻿using DownKyi.Core.Logging;
+﻿using System.Diagnostics;
+using DownKyi.Core.Logging;
 using MessagePack;
 using Microsoft.Data.Sqlite;
 using Console = DownKyi.Core.Utils.Debugging.Console;
@@ -56,7 +57,7 @@ public class DownloadDb
         }
         catch (Exception e)
         {
-            Console.PrintLine("Insert()发生异常: {0}", e);
+            Debug.WriteLine("Insert()发生异常: {0}", e);
             LogManager.Error($"{tableName}", e);
         }
     }
@@ -74,7 +75,7 @@ public class DownloadDb
         }
         catch (Exception e)
         {
-            Console.PrintLine("Delete()发生异常: {0}", e);
+            Debug.WriteLine("Delete()发生异常: {0}", e);
             LogManager.Error($"{tableName}", e);
         }
     }
@@ -107,7 +108,7 @@ public class DownloadDb
         }
         catch (Exception e)
         {
-            Console.PrintLine("Insert()发生异常: {0}", e);
+            Debug.WriteLine("Insert()发生异常: {0}", e);
             LogManager.Error($"{tableName}", e);
         }
     }
@@ -170,7 +171,7 @@ public class DownloadDb
                 }
                 catch (Exception e)
                 {
-                    Console.PrintLine("Query()发生异常: {0}", e);
+                    Debug.WriteLine("Query()发生异常: {0}", e);
                     LogManager.Error($"{tableName}", e);
                 }
             }

@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Diagnostics;
+using System.Net;
 using DownKyi.Core.Logging;
 using MessagePack;
 using Console = DownKyi.Core.Utils.Debugging.Console;
@@ -57,7 +58,7 @@ public static class ObjectHelper
             // 添加cookie
             cookieContainer.Add(
                 new Cookie(name, value.Replace(",", "%2c"), "/", ".bilibili.com") { Expires = dateTime });
-            Console.PrintLine(name + ": " + value + "\t" + cookieContainer.Count);
+            Debug.WriteLine(name + ": " + value + "\t" + cookieContainer.Count);
         }
 
         return cookieContainer;
@@ -81,7 +82,7 @@ public static class ObjectHelper
     /// <returns></returns>
     public static bool WriteCookiesToDisk(string file, CookieContainer cookieJar)
     {
-        return WriteObjectToDisk(file, cookieJar);
+        return WriteObjectToDisk(file, cookieJar.GetAllCookies());
     }
 
     /// <summary>
@@ -91,7 +92,10 @@ public static class ObjectHelper
     /// <returns></returns>
     public static CookieContainer ReadCookiesFromDisk(string file)
     {
-        return ReadObjectFromDisk<CookieContainer>(file);
+        var cookies = ReadObjectFromDisk<CookieCollection>(file);
+        var cookieContainer = new CookieContainer();
+        cookieContainer.Add(cookies);
+        return cookieContainer;
     }
 
     /// <summary>
@@ -105,22 +109,22 @@ public static class ObjectHelper
         try
         {
             using Stream stream = File.Create(file);
-            Console.PrintLine("Writing object to disk... ");
+            Debug.WriteLine("Writing object to disk... ");
 
             MessagePackSerializer.Serialize(stream, obj, MessagePack.Resolvers.ContractlessStandardResolver.Options);
 
-            Console.PrintLine("Done.");
+            Debug.WriteLine("Done.");
             return true;
         }
         catch (IOException e)
         {
-            Console.PrintLine("WriteObjectToDisk()发生IO异常: {0}", e);
+            Debug.WriteLine("WriteObjectToDisk()发生IO异常: {0}", e);
             LogManager.Error(e);
             return false;
         }
         catch (Exception e)
         {
-            Console.PrintLine("WriteObjectToDisk()发生异常: {0}", e);
+            Debug.WriteLine("WriteObjectToDisk()发生异常: {0}", e);
             LogManager.Error(e);
             return false;
         }
@@ -136,18 +140,18 @@ public static class ObjectHelper
         try
         {
             using Stream stream = File.Open(file, FileMode.Open);
-            Console.PrintLine("Reading object from disk... ");
+            Debug.WriteLine("Reading object from disk... ");
             return MessagePackSerializer.Deserialize<T>(stream, MessagePack.Resolvers.ContractlessStandardResolver.Options);
         }
         catch (IOException e)
         {
-            Console.PrintLine("ReadObjectFromDisk()发生IO异常: {0}", e);
+            Debug.WriteLine("ReadObjectFromDisk()发生IO异常: {0}", e);
             LogManager.Error(e);
             return null;
         }
         catch (Exception e)
         {
-            Console.PrintLine("ReadObjectFromDisk()发生异常: {0}", e);
+            Debug.WriteLine("ReadObjectFromDisk()发生异常: {0}", e);
             LogManager.Error(e);
             return null;
         }

@@ -19,15 +19,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public UserInfoSettings GetUserInfo()
     {
-        appSettings = GetSettings();
-        if (appSettings.UserInfo == null)
+        _appSettings = GetSettings();
+        if (_appSettings.UserInfo == null)
         {
             // 第一次获取，先设置默认值
             SetUserInfo(userInfo);
             return userInfo;
         }
 
-        return appSettings.UserInfo;
+        return _appSettings.UserInfo;
     }
 
     /// <summary>
@@ -37,7 +37,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetUserInfo(UserInfoSettings userInfo)
     {
-        appSettings.UserInfo = userInfo;
+        _appSettings.UserInfo = userInfo;
         return SetSettings();
     }
 }

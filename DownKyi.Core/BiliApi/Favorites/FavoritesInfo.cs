@@ -1,4 +1,5 @@
-﻿using DownKyi.Core.BiliApi.Favorites.Models;
+﻿using System.Diagnostics;
+using DownKyi.Core.BiliApi.Favorites.Models;
 using DownKyi.Core.Logging;
 using Newtonsoft.Json;
 using Console = DownKyi.Core.Utils.Debugging.Console;
@@ -31,7 +32,7 @@ public static class FavoritesInfo
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetFavoritesInfo()发生异常: {0}", e);
+            Debug.WriteLine("GetFavoritesInfo()发生异常: {0}", e);
             LogManager.Error("FavoritesInfo", e);
             return null;
         }
@@ -62,7 +63,7 @@ public static class FavoritesInfo
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetCreatedFavorites()发生异常: {0}", e);
+            Debug.WriteLine("GetCreatedFavorites()发生异常: {0}", e);
             LogManager.Error("FavoritesInfo", e);
             return null;
         }
@@ -120,7 +121,7 @@ public static class FavoritesInfo
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetCollectedFavorites()发生异常: {0}", e);
+            Debug.WriteLine("GetCollectedFavorites()发生异常: {0}", e);
             LogManager.Error("FavoritesInfo", e);
             return null;
         }

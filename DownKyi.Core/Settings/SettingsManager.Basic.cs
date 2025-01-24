@@ -28,20 +28,20 @@ public partial class SettingsManager
     
     public ThemeMode GetThemeMode()
     {
-        appSettings = GetSettings();
-        if (appSettings.Basic.ThemeMode == ThemeMode.Default)
+        _appSettings = GetSettings();
+        if (_appSettings.Basic.ThemeMode == ThemeMode.Default)
         {
             // 第一次获取，先设置默认值
             SetThemeMode(ThemeMode.Default);
             return ThemeMode.Default;
         }
 
-        return appSettings.Basic.ThemeMode;
+        return _appSettings.Basic.ThemeMode;
     }
     
     public bool SetThemeMode(ThemeMode themeMode)
     {
-        appSettings.Basic.ThemeMode = themeMode;
+        _appSettings.Basic.ThemeMode = themeMode;
         return SetSettings();
     }
 
@@ -51,15 +51,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public AfterDownloadOperation GetAfterDownloadOperation()
     {
-        appSettings = GetSettings();
-        if (appSettings.Basic.AfterDownload == AfterDownloadOperation.NOT_SET)
+        _appSettings = GetSettings();
+        if (_appSettings.Basic.AfterDownload == AfterDownloadOperation.NOT_SET)
         {
             // 第一次获取，先设置默认值
             SetAfterDownloadOperation(_afterDownload);
             return _afterDownload;
         }
 
-        return appSettings.Basic.AfterDownload;
+        return _appSettings.Basic.AfterDownload;
     }
 
     /// <summary>
@@ -69,7 +69,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetAfterDownloadOperation(AfterDownloadOperation afterDownload)
     {
-        appSettings.Basic.AfterDownload = afterDownload;
+        _appSettings.Basic.AfterDownload = afterDownload;
         return SetSettings();
     }
 
@@ -79,15 +79,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public AllowStatus IsListenClipboard()
     {
-        appSettings = GetSettings();
-        if (appSettings.Basic.IsListenClipboard == AllowStatus.NONE)
+        _appSettings = GetSettings();
+        if (_appSettings.Basic.IsListenClipboard == AllowStatus.NONE)
         {
             // 第一次获取，先设置默认值
             IsListenClipboard(_isListenClipboard);
             return _isListenClipboard;
         }
 
-        return appSettings.Basic.IsListenClipboard;
+        return _appSettings.Basic.IsListenClipboard;
     }
 
     /// <summary>
@@ -97,7 +97,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool IsListenClipboard(AllowStatus isListen)
     {
-        appSettings.Basic.IsListenClipboard = isListen;
+        _appSettings.Basic.IsListenClipboard = isListen;
         return SetSettings();
     }
 
@@ -107,15 +107,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public AllowStatus IsAutoParseVideo()
     {
-        appSettings = GetSettings();
-        if (appSettings.Basic.IsAutoParseVideo == AllowStatus.NONE)
+        _appSettings = GetSettings();
+        if (_appSettings.Basic.IsAutoParseVideo == AllowStatus.NONE)
         {
             // 第一次获取，先设置默认值
             IsAutoParseVideo(_isAutoParseVideo);
             return _isAutoParseVideo;
         }
 
-        return appSettings.Basic.IsAutoParseVideo;
+        return _appSettings.Basic.IsAutoParseVideo;
     }
 
     /// <summary>
@@ -125,7 +125,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool IsAutoParseVideo(AllowStatus IsAuto)
     {
-        appSettings.Basic.IsAutoParseVideo = IsAuto;
+        _appSettings.Basic.IsAutoParseVideo = IsAuto;
         return SetSettings();
     }
 
@@ -135,15 +135,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public ParseScope GetParseScope()
     {
-        appSettings = GetSettings();
-        if (appSettings.Basic.ParseScope == ParseScope.NOT_SET)
+        _appSettings = GetSettings();
+        if (_appSettings.Basic.ParseScope == ParseScope.NOT_SET)
         {
             // 第一次获取，先设置默认值
             SetParseScope(_parseScope);
             return _parseScope;
         }
 
-        return appSettings.Basic.ParseScope;
+        return _appSettings.Basic.ParseScope;
     }
 
     /// <summary>
@@ -153,7 +153,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetParseScope(ParseScope parseScope)
     {
-        appSettings.Basic.ParseScope = parseScope;
+        _appSettings.Basic.ParseScope = parseScope;
         return SetSettings();
     }
 
@@ -163,15 +163,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public AllowStatus IsAutoDownloadAll()
     {
-        appSettings = GetSettings();
-        if (appSettings.Basic.IsAutoDownloadAll == AllowStatus.NONE)
+        _appSettings = GetSettings();
+        if (_appSettings.Basic.IsAutoDownloadAll == AllowStatus.NONE)
         {
             // 第一次获取，先设置默认值
             IsAutoDownloadAll(_isAutoDownloadAll);
             return _isAutoDownloadAll;
         }
 
-        return appSettings.Basic.IsAutoDownloadAll;
+        return _appSettings.Basic.IsAutoDownloadAll;
     }
 
     /// <summary>
@@ -181,7 +181,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool IsAutoDownloadAll(AllowStatus isAutoDownloadAll)
     {
-        appSettings.Basic.IsAutoDownloadAll = isAutoDownloadAll;
+        _appSettings.Basic.IsAutoDownloadAll = isAutoDownloadAll;
         return SetSettings();
     }
 
@@ -191,15 +191,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public DownloadFinishedSort GetDownloadFinishedSort()
     {
-        appSettings = GetSettings();
-        if (appSettings.Basic.DownloadFinishedSort == DownloadFinishedSort.NotSet)
+        _appSettings = GetSettings();
+        if (_appSettings.Basic.DownloadFinishedSort == DownloadFinishedSort.NotSet)
         {
             // 第一次获取，先设置默认值
             SetDownloadFinishedSort(_finishedSort);
             return _finishedSort;
         }
 
-        return appSettings.Basic.DownloadFinishedSort;
+        return _appSettings.Basic.DownloadFinishedSort;
     }
 
     /// <summary>
@@ -209,7 +209,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetDownloadFinishedSort(DownloadFinishedSort finishedSort)
     {
-        appSettings.Basic.DownloadFinishedSort = finishedSort;
+        _appSettings.Basic.DownloadFinishedSort = finishedSort;
         return SetSettings();
     }
 
@@ -219,15 +219,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public RepeatDownloadStrategy GetRepeatDownloadStrategy()
     {
-        appSettings = GetSettings();
-        if (appSettings.Basic.RepeatDownloadStrategy == RepeatDownloadStrategy.Ask)
+        _appSettings = GetSettings();
+        if (_appSettings.Basic.RepeatDownloadStrategy == RepeatDownloadStrategy.Ask)
         {
             // 第一次获取，先设置默认值
             SetRepeatDownloadStrategy(_repeatDownloadStrategy);
             return _repeatDownloadStrategy;
         }
 
-        return appSettings.Basic.RepeatDownloadStrategy;
+        return _appSettings.Basic.RepeatDownloadStrategy;
     }
 
     /// <summary>
@@ -237,7 +237,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetRepeatDownloadStrategy(RepeatDownloadStrategy repeatDownloadStrategy)
     {
-        appSettings.Basic.RepeatDownloadStrategy = repeatDownloadStrategy;
+        _appSettings.Basic.RepeatDownloadStrategy = repeatDownloadStrategy;
         return SetSettings();
     }
 
@@ -247,15 +247,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool IsRepeatFileAutoAddNumberSuffix()
     {
-        appSettings = GetSettings();
-        if (appSettings.Basic.RepeatFileAutoAddNumberSuffix == false)
+        _appSettings = GetSettings();
+        if (_appSettings.Basic.RepeatFileAutoAddNumberSuffix == false)
         {
             // 第一次获取，先设置默认值
             IsRepeatFileAutoAddNumberSuffix(_repeatFileAutoAddNumberSuffix);
             return _repeatFileAutoAddNumberSuffix;
         }
 
-        return appSettings.Basic.RepeatFileAutoAddNumberSuffix;
+        return _appSettings.Basic.RepeatFileAutoAddNumberSuffix;
     }
 
     /// <summary>
@@ -266,7 +266,7 @@ public partial class SettingsManager
     /// <exception cref="NotImplementedException"></exception>
     public bool IsRepeatFileAutoAddNumberSuffix(bool repeatFileAutoAddNumberSuffix)
     {
-        appSettings.Basic.RepeatFileAutoAddNumberSuffix = repeatFileAutoAddNumberSuffix;
+        _appSettings.Basic.RepeatFileAutoAddNumberSuffix = repeatFileAutoAddNumberSuffix;
         return SetSettings();
     }
 }

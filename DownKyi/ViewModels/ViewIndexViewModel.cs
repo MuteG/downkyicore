@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -307,7 +308,7 @@ public class ViewIndexViewModel : ViewModelBase
         }
         catch (Exception e)
         {
-            Console.PrintLine("UpdateUserInfo()发生异常: {0}", e);
+            Debug.WriteLine("UpdateUserInfo()发生异常: {0}", e);
             LogManager.Error(Tag, e);
         }
     }

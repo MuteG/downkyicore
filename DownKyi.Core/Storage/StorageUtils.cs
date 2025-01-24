@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Diagnostics;
+using System.Net;
 using DownKyi.Core.Logging;
 using Console = DownKyi.Core.Utils.Debugging.Console;
 
@@ -21,7 +22,7 @@ internal static class StorageUtils
         }
         catch (Exception e)
         {
-            Console.PrintLine("DownloadImage()发生异常: {0}", e);
+            Debug.WriteLine("DownloadImage()发生异常: {0}", e);
             LogManager.Error("StorageUtils", e);
             return false;
         }

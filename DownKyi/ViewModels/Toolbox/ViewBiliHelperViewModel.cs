@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using DownKyi.Core.BiliApi.BiliUtils;
 using DownKyi.Core.Logging;
@@ -149,7 +150,7 @@ public class ViewBiliHelperViewModel : ViewModelBase
             {
                 UserMid = null;
 
-                Console.PrintLine("FindDanmakuSenderCommand()发生异常: {0}", e);
+                Debug.WriteLine("FindDanmakuSenderCommand()发生异常: {0}", e);
                 LogManager.Error(Tag, e);
             }
         });

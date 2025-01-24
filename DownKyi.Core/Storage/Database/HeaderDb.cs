@@ -1,4 +1,5 @@
-﻿using DownKyi.Core.Logging;
+﻿using System.Diagnostics;
+using DownKyi.Core.Logging;
 using Console = DownKyi.Core.Utils.Debugging.Console;
 
 namespace DownKyi.Core.Storage.Database;
@@ -41,7 +42,7 @@ public class HeaderDb
         }
         catch (Exception e)
         {
-            Console.PrintLine("Insert()发生异常: {0}", e);
+            Debug.WriteLine("Insert()发生异常: {0}", e);
             LogManager.Error("HeaderDb", e);
         }
     }
@@ -60,7 +61,7 @@ public class HeaderDb
         }
         catch (Exception e)
         {
-            Console.PrintLine("Update()发生异常: {0}", e);
+            Debug.WriteLine("Update()发生异常: {0}", e);
             LogManager.Error("HeaderDb", e);
         }
     }
@@ -115,7 +116,7 @@ public class HeaderDb
         }
         catch (Exception e)
         {
-            Console.PrintLine("Query()发生异常: {0}", e);
+            Debug.WriteLine("Query()发生异常: {0}", e);
             LogManager.Error($"{tableName}", e);
         }
 

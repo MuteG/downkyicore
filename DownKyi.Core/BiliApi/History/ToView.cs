@@ -3,6 +3,7 @@ using DownKyi.Core.Logging;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace DownKyi.Core.BiliApi.History
 {
@@ -29,7 +30,7 @@ namespace DownKyi.Core.BiliApi.History
             }
             catch (Exception e)
             {
-                Utils.Debugging.Console.PrintLine("GetToView()发生异常: {0}", e);
+                Debug.WriteLine("GetToView()发生异常: {0}", e);
                 LogManager.Error("ToView", e);
                 return null;
             }

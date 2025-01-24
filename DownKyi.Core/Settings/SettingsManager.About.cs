@@ -14,15 +14,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public AllowStatus IsReceiveBetaVersion()
     {
-        appSettings = GetSettings();
-        if (appSettings.About.IsReceiveBetaVersion == AllowStatus.NONE)
+        _appSettings = GetSettings();
+        if (_appSettings.About.IsReceiveBetaVersion == AllowStatus.NONE)
         {
             // 第一次获取，先设置默认值
             IsReceiveBetaVersion(isReceiveBetaVersion);
             return isReceiveBetaVersion;
         }
 
-        return appSettings.About.IsReceiveBetaVersion;
+        return _appSettings.About.IsReceiveBetaVersion;
     }
 
     /// <summary>
@@ -32,7 +32,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool IsReceiveBetaVersion(AllowStatus isReceiveBetaVersion)
     {
-        appSettings.About.IsReceiveBetaVersion = isReceiveBetaVersion;
+        _appSettings.About.IsReceiveBetaVersion = isReceiveBetaVersion;
         return SetSettings();
     }
 
@@ -42,15 +42,15 @@ public partial class SettingsManager
     /// <returns></returns>
     public AllowStatus GetAutoUpdateWhenLaunch()
     {
-        appSettings = GetSettings();
-        if (appSettings.About.AutoUpdateWhenLaunch == AllowStatus.NONE)
+        _appSettings = GetSettings();
+        if (_appSettings.About.AutoUpdateWhenLaunch == AllowStatus.NONE)
         {
             // 第一次获取，先设置默认值
             SetAutoUpdateWhenLaunch(autoUpdateWhenLaunch);
             return autoUpdateWhenLaunch;
         }
 
-        return appSettings.About.AutoUpdateWhenLaunch;
+        return _appSettings.About.AutoUpdateWhenLaunch;
     }
 
     /// <summary>
@@ -60,7 +60,7 @@ public partial class SettingsManager
     /// <returns></returns>
     public bool SetAutoUpdateWhenLaunch(AllowStatus autoUpdateWhenLaunch)
     {
-        appSettings.About.AutoUpdateWhenLaunch = autoUpdateWhenLaunch;
+        _appSettings.About.AutoUpdateWhenLaunch = autoUpdateWhenLaunch;
         return SetSettings();
     }
 }

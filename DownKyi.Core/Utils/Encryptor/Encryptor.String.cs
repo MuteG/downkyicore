@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System.Diagnostics;
+using System.Security.Cryptography;
 using System.Text;
 using DownKyi.Core.Logging;
 using Console = DownKyi.Core.Utils.Debugging.Console;
@@ -31,7 +32,7 @@ public static partial class Encryptor
         }
         catch (Exception e)
         {
-            Console.PrintLine("EncryptString()发生异常: {0}", e);
+            Debug.WriteLine("EncryptString()发生异常: {0}", e);
             LogManager.Error("Encryptor", e);
             return encryptString;
         }
@@ -59,7 +60,7 @@ public static partial class Encryptor
         }
         catch (Exception e)
         {
-            Console.PrintLine("DecryptString()发生异常: {0}", e);
+            Debug.WriteLine("DecryptString()发生异常: {0}", e);
             LogManager.Error("Encryptor", e);
             return decryptString;
         }

@@ -1,4 +1,5 @@
-﻿using DownKyi.Core.BiliApi.Bangumi.Models;
+﻿using System.Diagnostics;
+using DownKyi.Core.BiliApi.Bangumi.Models;
 using DownKyi.Core.Logging;
 using Newtonsoft.Json;
 using Console = DownKyi.Core.Utils.Debugging.Console;
@@ -32,7 +33,7 @@ public static class BangumiInfo
         }
         catch (Exception e)
         {
-            Console.PrintLine("BangumiMediaInfo()发生异常: {0}", e);
+            Debug.WriteLine("BangumiMediaInfo()发生异常: {0}", e);
             LogManager.Error("BangumiInfo", e);
             return null;
         }
@@ -78,7 +79,7 @@ public static class BangumiInfo
         }
         catch (Exception e)
         {
-            Console.PrintLine("BangumiSeasonInfo()发生异常: {0}", e);
+            Debug.WriteLine("BangumiSeasonInfo()发生异常: {0}", e);
             LogManager.Error("BangumiInfo", e);
             return null;
         }

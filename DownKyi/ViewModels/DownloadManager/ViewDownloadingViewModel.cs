@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using DownKyi.Core.Logging;
@@ -192,7 +193,7 @@ namespace DownKyi.ViewModels.DownloadManager
             }
             catch (Exception e)
             {
-                Console.PrintLine("SetDialogService()发生异常: {0}", e);
+                Debug.WriteLine("SetDialogService()发生异常: {0}", e);
                 LogManager.Error($"{Tag}.SetDialogService()", e);
             }
         }

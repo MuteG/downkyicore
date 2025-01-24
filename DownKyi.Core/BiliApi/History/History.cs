@@ -2,6 +2,7 @@
 using DownKyi.Core.Logging;
 using Newtonsoft.Json;
 using System;
+using System.Diagnostics;
 
 namespace DownKyi.Core.BiliApi.History
 {
@@ -53,7 +54,7 @@ namespace DownKyi.Core.BiliApi.History
             }
             catch (Exception e)
             {
-                Utils.Debugging.Console.PrintLine("GetHistory()发生异常: {0}", e);
+                Debug.WriteLine("GetHistory()发生异常: {0}", e);
                 LogManager.Error("History", e);
                 return null;
             }

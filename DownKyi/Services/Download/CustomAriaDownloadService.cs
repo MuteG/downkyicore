@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -319,13 +320,13 @@ public class CustomAriaDownloadService : DownloadService, IDownloadService
         // 暂停所有下载
         var ariaPause = await AriaClient.PauseAllAsync();
 #if DEBUG
-        Core.Utils.Debugging.Console.PrintLine(ariaPause.ToString());
+        Debug.WriteLine(ariaPause.ToString());
 #endif
 
         // 关闭服务器
         bool close = AriaServer.CloseServer();
 #if DEBUG
-        Core.Utils.Debugging.Console.PrintLine(close);
+        Debug.WriteLine(close);
 #endif
     }
 
@@ -421,7 +422,7 @@ public class CustomAriaDownloadService : DownloadService, IDownloadService
         }
         catch (InvalidOperationException e)
         {
-            Core.Utils.Debugging.Console.PrintLine("AriaTellStatus()发生异常: {0}", e);
+            Debug.WriteLine("AriaTellStatus()发生异常: {0}", e);
             LogManager.Error("AriaTellStatus()", e);
         }
 

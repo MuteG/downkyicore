@@ -1,4 +1,5 @@
-﻿using DownKyi.Core.BiliApi.Users.Models;
+﻿using System.Diagnostics;
+using DownKyi.Core.BiliApi.Users.Models;
 using DownKyi.Core.Logging;
 using Newtonsoft.Json;
 using Console = DownKyi.Core.Utils.Debugging.Console;
@@ -34,7 +35,7 @@ public static class UserStatus
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetUserRelationStat()发生异常: {0}", e);
+            Debug.WriteLine("GetUserRelationStat()发生异常: {0}", e);
             LogManager.Error("UserStatus", e);
             return null;
         }
@@ -65,7 +66,7 @@ public static class UserStatus
         }
         catch (Exception e)
         {
-            Console.PrintLine("GetUpStat()发生异常: {0}", e);
+            Debug.WriteLine("GetUpStat()发生异常: {0}", e);
             LogManager.Error("UserStatus", e);
             return null;
         }
