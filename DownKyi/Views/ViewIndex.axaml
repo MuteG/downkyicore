@@ -3,7 +3,7 @@
              xmlns:prism="http://prismlibrary.com/"
              xmlns:vm="clr-namespace:DownKyi.ViewModels"
              xmlns:i="using:Avalonia.Xaml.Interactivity"
-             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+             xmlns:ia="using:Avalonia.Xaml.Interactions.Core"
              xmlns:iac="clr-namespace:DownKyi.CustomAction"
              prism:ViewModelLocator.AutoWireViewModel="True"
              x:DataType="vm:ViewIndexViewModel"

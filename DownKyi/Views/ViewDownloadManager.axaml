@@ -4,7 +4,7 @@
              xmlns:prism="http://prismlibrary.com/"
              xmlns:vm="clr-namespace:DownKyi.ViewModels"
              xmlns:i="using:Avalonia.Xaml.Interactivity"
-             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+             xmlns:ia="using:Avalonia.Xaml.Interactions.Core"
              x:DataType="vm:ViewDownloadManagerViewModel"
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid RowDefinitions="50,1,*">

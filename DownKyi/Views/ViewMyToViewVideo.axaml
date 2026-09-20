@@ -5,7 +5,7 @@
              prism:ViewModelLocator.AutoWireViewModel="True"
              xmlns:i="using:Avalonia.Xaml.Interactivity"
              xmlns:custom="clr-namespace:DownKyi.CustomControl"
-             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+             xmlns:ia="using:Avalonia.Xaml.Interactions.Core"
              xmlns:vm="clr-namespace:DownKyi.ViewModels"
              xmlns:vmp="clr-namespace:DownKyi.ViewModels.PageViewModels"
              x:DataType="vm:ViewMyToViewVideoViewModel">

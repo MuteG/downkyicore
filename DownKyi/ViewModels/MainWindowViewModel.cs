@@ -10,7 +10,8 @@ using DownKyi.Utils;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
-using Prism.Regions;
+using Prism.Navigation;
+using Prism.Navigation.Regions;
 
 namespace DownKyi.ViewModels;
 

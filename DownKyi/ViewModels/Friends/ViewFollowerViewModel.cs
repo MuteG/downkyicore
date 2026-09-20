@@ -11,7 +11,7 @@ using DownKyi.Core.Storage;
 using DownKyi.CustomControl;
 using DownKyi.ViewModels.PageViewModels;
 using Prism.Events;
-using Prism.Regions;
+using Prism.Navigation.Regions;
 
 namespace DownKyi.ViewModels.Friends;
 

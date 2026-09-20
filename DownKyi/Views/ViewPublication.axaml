@@ -5,7 +5,7 @@
              xmlns:vm="clr-namespace:DownKyi.ViewModels"
              xmlns:vmp="clr-namespace:DownKyi.ViewModels.PageViewModels"
              xmlns:i="using:Avalonia.Xaml.Interactivity"
-             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+             xmlns:ia="using:Avalonia.Xaml.Interactions.Core"
              x:DataType="vm:ViewPublicationViewModel">
     <UserControl.Resources>
         <ControlTheme x:Key="MediaListStyle" TargetType="{x:Type ListBoxItem}" x:DataType="vmp:PublicationMedia">

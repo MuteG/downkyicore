@@ -12,7 +12,7 @@
         Title="{DynamicResource AppName}"
         Icon="/Resources/favicon.ico"
         xmlns:i="using:Avalonia.Xaml.Interactivity"
-        xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+        xmlns:ia="using:Avalonia.Xaml.Interactions.Core"
         WindowState="{Binding WinState}">
 
     <i:Interaction.Behaviors>

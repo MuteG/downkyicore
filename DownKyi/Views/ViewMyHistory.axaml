@@ -8,7 +8,7 @@
              xmlns:custom="clr-namespace:DownKyi.CustomControl"
              x:DataType="vm:ViewMyHistoryViewModel"
              xmlns:i="using:Avalonia.Xaml.Interactivity"
-             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions">
+             xmlns:ia="using:Avalonia.Xaml.Interactions.Core">
     <UserControl.Resources>
         <ControlTheme x:Key="MediaListStyle" TargetType="{x:Type ListBoxItem}" x:DataType="vmp:HistoryMedia">
             <Setter Property="IsSelected" Value="{Binding IsSelected}" />

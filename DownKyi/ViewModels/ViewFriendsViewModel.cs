@@ -7,7 +7,8 @@ using DownKyi.ViewModels.Friends;
 using DownKyi.ViewModels.PageViewModels;
 using Prism.Commands;
 using Prism.Events;
-using Prism.Regions;
+using Prism.Navigation;
+using Prism.Navigation.Regions;
 
 namespace DownKyi.ViewModels
 {

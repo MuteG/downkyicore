@@ -6,7 +6,8 @@ using DownKyi.ViewModels.PageViewModels;
 using DownKyi.ViewModels.Settings;
 using Prism.Commands;
 using Prism.Events;
-using Prism.Regions;
+using Prism.Navigation;
+using Prism.Navigation.Regions;
 
 namespace DownKyi.ViewModels;
 

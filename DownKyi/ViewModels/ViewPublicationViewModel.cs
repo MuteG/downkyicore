@@ -23,7 +23,7 @@ using DownKyi.ViewModels.UserSpace;
 using DryIoc;
 using Prism.Commands;
 using Prism.Events;
-using Prism.Regions;
+using Prism.Navigation.Regions;
 
 namespace DownKyi.ViewModels
 {

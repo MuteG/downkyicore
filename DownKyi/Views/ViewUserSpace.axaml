@@ -1,7 +1,7 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:i="using:Avalonia.Xaml.Interactivity"
-             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+             xmlns:ia="using:Avalonia.Xaml.Interactions.Core"
              x:Class="DownKyi.Views.ViewUserSpace"
              xmlns:prism="http://prismlibrary.com/"
              xmlns:custom="clr-namespace:DownKyi.CustomControl"

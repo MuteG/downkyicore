@@ -92,7 +92,8 @@ namespace DownKyi.Core.Aria2cNet.Server
                     executeName += ".exe";
                 }
 
-                ExecuteProcess($"aria2/{executeName}",
+                // ExecuteProcess($"aria2/{executeName}",
+                ExecuteProcess($"{executeName}",
                     $"--enable-rpc --rpc-listen-all=true --rpc-allow-origin-all=true " +
                     $"--check-certificate=false " + // 解决问题 SSL/TLS handshake failure
                     $"--rpc-listen-port={config.ListenPort} " +

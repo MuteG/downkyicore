@@ -7,9 +7,9 @@ using DownKyi.Services;
 using DownKyi.Utils;
 using DownKyi.ViewModels.Dialogs;
 using Prism.Commands;
+using Prism.Dialogs;
 using Prism.Events;
-using Prism.Regions;
-using Prism.Services.Dialogs;
+using Prism.Navigation.Regions;
 using System;
 
 
@@ -133,7 +133,7 @@ public class ViewAboutViewModel : ViewModelBase
         var currVersion = Version.Parse(versionString);
         if(currVersion < version)
         {
-            await DialogService?.ShowDialogAsync(NewVersionAvailableDialogViewModel.Tag, new Prism.Services.Dialogs.DialogParameters { { "body", body } }, result =>
+            await DialogService?.ShowDialogAsync(NewVersionAvailableDialogViewModel.Tag, new Prism.Dialogs.DialogParameters { { "body", body } }, result =>
             {
                 if(result.Result == ButtonResult.OK)
                 {

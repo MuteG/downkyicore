@@ -6,7 +6,7 @@
              x:Class="DownKyi.Views.ViewLogin"
              x:DataType="vm:ViewLoginViewModel"
              xmlns:i="using:Avalonia.Xaml.Interactivity"
-             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions">
+             xmlns:ia="using:Avalonia.Xaml.Interactions.Core">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />

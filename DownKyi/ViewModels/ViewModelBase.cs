@@ -3,7 +3,7 @@ using Avalonia.Threading;
 using DownKyi.PrismExtension.Dialog;
 using Prism.Events;
 using Prism.Mvvm;
-using Prism.Regions;
+using Prism.Navigation.Regions;
 
 namespace DownKyi.ViewModels;
 

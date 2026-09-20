@@ -6,8 +6,8 @@
              prism:ViewModelLocator.AutoWireViewModel="True"
              x:DataType="vms:ViewVideoViewModel"
              xmlns:i="using:Avalonia.Xaml.Interactivity"
-             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
-             xmlns:id="clr-namespace:Avalonia.Xaml.Interactions.Draggable;assembly=Avalonia.Xaml.Interactions.Draggable">
+             xmlns:ia="using:Avalonia.Xaml.Interactions.Core"
+             xmlns:id="using:Avalonia.Xaml.Interactions.Draggable">
     <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
         <StackPanel Margin="50,0" Orientation="Vertical">
 

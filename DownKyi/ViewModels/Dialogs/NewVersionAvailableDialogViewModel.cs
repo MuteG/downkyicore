@@ -2,7 +2,7 @@
 using DownKyi.Models;
 using DownKyi.Utils;
 using Prism.Commands;
-using Prism.Services.Dialogs;
+using Prism.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

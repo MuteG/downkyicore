@@ -4,7 +4,7 @@
              xmlns:vmu="clr-namespace:DownKyi.ViewModels.UserSpace"
              x:DataType="vmu:ViewArchiveViewModel"
              xmlns:i="using:Avalonia.Xaml.Interactivity"
-             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions">
+             xmlns:ia="using:Avalonia.Xaml.Interactions.Core">
     <Grid RowDefinitions="*">
 
         <ListBox Name="NamePublicationZones"

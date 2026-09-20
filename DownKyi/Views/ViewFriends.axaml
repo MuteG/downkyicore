@@ -7,7 +7,7 @@
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
              xmlns:i="using:Avalonia.Xaml.Interactivity"
-             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions">
+             xmlns:ia="using:Avalonia.Xaml.Interactions.Core">
     <Grid RowDefinitions="50,1,*">
         <Grid Grid.Row="0" ColumnDefinitions="100,*,100">
             <Button

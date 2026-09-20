@@ -4,12 +4,12 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using DownKyi.PrismExtension.Common;
+using Prism.Dialogs;
 using Prism.Ioc;
-using Prism.Services.Dialogs;
 
 namespace DownKyi.PrismExtension.Dialog;
 
-public class DialogService : Prism.Services.Dialogs.DialogService, IDialogService
+public class DialogService : Prism.Dialogs.DialogService, IDialogService
 {
     private readonly IContainerExtension _containerExtension;
 
@@ -32,20 +32,20 @@ public class DialogService : Prism.Services.Dialogs.DialogService, IDialogServic
         parameters ??= new DialogParameters();
 
         var dialogWindow = CreateDialogWindow(windowName);
-        ConfigureDialogWindowEvents(dialogWindow, callback);
+        ConfigureDialogWindowEvents(dialogWindow, callback != null ? new DialogCallback().OnClose(callback) : DialogCallback.Empty);
         ConfigureDialogWindowContent(name, dialogWindow, parameters);
 
         return ShowDialogWindow(dialogWindow, isModal, parentWindow);
     }
 
-    protected new virtual IDialogWindow CreateDialogWindow(string? name)
+    protected override Prism.Dialogs.IDialogWindow CreateDialogWindow(string? name)
     {
         return string.IsNullOrWhiteSpace(name)
             ? _containerExtension.Resolve<IDialogWindow>()
             : _containerExtension.Resolve<IDialogWindow>(name);
     }
 
-    protected virtual Task ShowDialogWindow(IDialogWindow dialogWindow, bool isModal, Window? owner = null)
+    protected new virtual Task ShowDialogWindow(Prism.Dialogs.IDialogWindow dialogWindow, bool isModal, Window? owner = null)
     {
         if (isModal &&
             Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime deskLifetime)
@@ -70,7 +70,7 @@ public class DialogService : Prism.Services.Dialogs.DialogService, IDialogServic
     /// <param name="dialogName">The name of the dialog to show.</param>
     /// <param name="window">The hosting window.</param>
     /// <param name="parameters">The parameters to pass to the dialog.</param>
-    protected virtual void ConfigureDialogWindowContent(string dialogName, IDialogWindow window,
+    protected override void ConfigureDialogWindowContent(string dialogName, Prism.Dialogs.IDialogWindow window,
         IDialogParameters parameters)
     {
         var content = _containerExtension.Resolve<object>(dialogName);
@@ -87,14 +87,16 @@ public class DialogService : Prism.Services.Dialogs.DialogService, IDialogServic
         MvvmHelpers.ViewAndViewModelAction<IDialogAware>(viewModel, d => d.OnDialogOpened(parameters));
     }
 
-    private void ConfigureDialogWindowProperties(IDialogWindow window, Control dialogContent,
+    protected override void ConfigureDialogWindowProperties(Prism.Dialogs.IDialogWindow window, Control dialogContent,
         IDialogAware viewModel)
     {
-
-        var windowTheme = Dialog.GetTheme(dialogContent);
-        if (windowTheme != null)
+        if (window is IDialogWindow customWindow)
         {
-            window.Theme = windowTheme;
+            var windowTheme = Dialog.GetTheme(dialogContent);
+            if (windowTheme != null)
+            {
+                customWindow.Theme = windowTheme;
+            }
         }
 
         window.Content = dialogContent;

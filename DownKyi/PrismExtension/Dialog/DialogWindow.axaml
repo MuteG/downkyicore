@@ -3,25 +3,12 @@
         x:CompileBindings="False"
         x:Class="DownKyi.PrismExtension.Dialog.DialogWindow"
         Title="{Binding Title}"
-        WindowStartupLocation="CenterOwner">
-    <Window.Styles>
-        <Style Selector="Window">
-            <Setter Property="SizeToContent" Value="WidthAndHeight" />
-            <Setter Property="UseLayoutRounding" Value="True" />
-            <Setter Property="TransparencyLevelHint" Value="AcrylicBlur" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="CanResize" Value="False" />
-            <Setter Property="ShowInTaskbar" Value="False" />
-            <Setter Property="SystemDecorations" Value="None" />
-        </Style>
-        <!-- <Style Selector="Window"> -->
-        <!--     <Setter Property="FontFamily" Value="{DynamicResource ProgramFont}" /> -->
-        <!-- </Style> -->
-        <!-- <Style Selector="TemplatedControl"> -->
-        <!--     <Setter Property="FontFamily" Value="{DynamicResource ProgramFont}" /> -->
-        <!-- </Style> -->
-        
-        <!-- <SimpleTheme /> -->
-        <!-- <StyleInclude Source="avares://Avalonia.Themes.Simple/SimpleTheme.xaml" /> -->
-    </Window.Styles>
+        WindowStartupLocation="CenterOwner"
+        SizeToContent="WidthAndHeight"
+        UseLayoutRounding="True"
+        TransparencyLevelHint="AcrylicBlur"
+        BorderThickness="1"
+        CanResize="False"
+        ShowInTaskbar="False"
+        SystemDecorations="None">
 </Window>

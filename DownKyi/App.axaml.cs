@@ -210,13 +210,13 @@ public partial class App : PrismApplication
             case Core.Settings.Downloader.NOT_SET:
                 break;
             case Core.Settings.Downloader.BUILT_IN:
-                _downloadService = new BuiltinDownloadService(DownloadingList, DownloadedList, (IDialogService)Container.GetContainer().GetService(typeof(IDialogService)));
+                _downloadService = new BuiltinDownloadService(DownloadingList, DownloadedList, Container.Resolve<IDialogService>());
                 break;
             case Core.Settings.Downloader.ARIA:
-                _downloadService = new AriaDownloadService(DownloadingList, DownloadedList, (IDialogService)Container.GetContainer().GetService(typeof(IDialogService)));
+                _downloadService = new AriaDownloadService(DownloadingList, DownloadedList, Container.Resolve<IDialogService>());
                 break;
             case Core.Settings.Downloader.CUSTOM_ARIA:
-                _downloadService = new CustomAriaDownloadService(DownloadingList, DownloadedList, (IDialogService)Container.GetContainer().GetService(typeof(IDialogService)));
+                _downloadService = new CustomAriaDownloadService(DownloadingList, DownloadedList, Container.Resolve<IDialogService>());
                 break;
         }
 
